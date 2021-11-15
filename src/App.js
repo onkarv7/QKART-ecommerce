@@ -8,19 +8,7 @@ export const config = {
 function App() {
   return (
     <div className="App">
-          <Register />
-        {/* <Route path="/login">
-          <Login />
-        </Route> */}
-        {/* <Route exact path="/">
-          <Products />
-        </Route> */}
-
-        {/* TODO: CRIO_TASK_MODULE_REGISTER - To add route for /login */}
-
-        {/* <Route path="/">
-          <Home />
-        </Route> */}
+      <Register />
     </div>
   );
 }

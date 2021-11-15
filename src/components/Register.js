@@ -10,17 +10,6 @@ import "./Register.css";
 
 const Register = () => {
   const { enqueueSnackbar } = useSnackbar();
-  const [formData, setFormData] = useState({
-    username: "",
-    password: "",
-    confirmPassword: "",
-  });
-  const [loading, setLoading] = useState(false);
-
-  const handleInput = (e) => {
-    const [key, value] = [e.target.name, e.target.value];
-    setFormData((nextFormData) => ({ ...nextFormData, [key]: value }));
-  };
 
   /**
    * Validate the input values so that any bad or illegal values are not passed to the backend.
@@ -40,7 +29,6 @@ const Register = () => {
   const validateInput = (data) => {
   };
 
-
   // TODO: CRIO_TASK_MODULE_REGISTER - Implement the register function
   /**
    * Definition for register handler
@@ -52,7 +40,7 @@ const Register = () => {
    *      -   Display a success message
    *      -   Redirect the user to the "/login" page
    */
-  
+
   // TODO: CRIO_TASK_MODULE_REGISTER - Fetch the API response
   /**
    * Perform the API call over the network and return the response
@@ -107,7 +95,6 @@ const Register = () => {
             name="username"
             placeholder="Enter Username"
             fullWidth
-            onChange={handleInput}
           />
           <TextField
             id="password"
@@ -115,10 +102,6 @@ const Register = () => {
             label="Password"
             name="password"
             type="password"
-            // FIXME - Is this required? Not showing up on UI
-            placeholder="Enter a password with minimum 8 characters"
-            onChange={handleInput}
-            // FIXME - Update placeholder text
             helperText="Password must be atleast 6 characters length"
             fullWidth
           />
@@ -129,7 +112,6 @@ const Register = () => {
             name="confirmPassword"
             type="password"
             placeholder="Re-enter your password to confirm"
-            onChange={handleInput}
             fullWidth
           />
           {loading ? (
@@ -140,17 +122,16 @@ const Register = () => {
             <Button
               className="button"
               variant="contained"
-              onClick={() => register(formData)}
               sx={{ "background-color": "#00a278" }}
             >
               Register Now
             </Button>
           )}
           <p className="secondary-action">
-            Already have an account{" "}
-            <a className="link" href="/login">
+            Already have an account?{" "}
+            {/* <a className="link" href="#">
               Login here
-            </a>
+            </a> */}
           </p>
         </Stack>
       </Box>

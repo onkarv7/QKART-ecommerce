@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import { SnackbarProvider } from "notistack";
 
+// TODO: CRIO_TASK_MODULE_REGISTER - Add Target container ID (refer public/index.html)
 ReactDOM.render(
   <React.StrictMode>
         <SnackbarProvider
@@ -17,5 +18,5 @@ ReactDOM.render(
           <App />
         </SnackbarProvider>
   </React.StrictMode>,
-  document.getElementById("root")
+   document.getElementById('')
 );
