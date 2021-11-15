@@ -3,14 +3,12 @@ import { Box } from "@mui/system";
 import axios from "axios";
 import { useSnackbar } from "notistack";
 import React, { useState } from "react";
-import { useHistory } from "react-router";
 import { config } from "../App";
-import AlternateHeader from "../components/AlternateHeader";
-import Layout from "../components/Layout";
+import Footer from "./Footer";
+import Header from "./Header";
 import "./Register.css";
 
 const Register = () => {
-  const history = useHistory();
   const { enqueueSnackbar } = useSnackbar();
   const [formData, setFormData] = useState({
     username: "",
@@ -19,7 +17,11 @@ const Register = () => {
   });
   const [loading, setLoading] = useState(false);
 
-  // TODO: CRIO_TASK_MODULE_REGISTER - Implement user input validation logic
+  const handleInput = (e) => {
+    const [key, value] = [e.target.name, e.target.value];
+    setFormData((nextFormData) => ({ ...nextFormData, [key]: value }));
+  };
+
   /**
    * Validate the input values so that any bad or illegal values are not passed to the backend.
    *
@@ -35,7 +37,7 @@ const Register = () => {
    * -    Check that password field is not more than 32 characters in length
    * -    Check that confirmPassword field has the same value as password field
    */
-  const validateInput = () => {
+  const validateInput = (data) => {
   };
 
   // TODO: CRIO_TASK_MODULE_REGISTER - Fetch the API response
@@ -70,7 +72,7 @@ const Register = () => {
    *      "message": "Username is already taken"
    * }
    */
-  const performAPICall = async () => {
+  const register = async (formData) => {
   };
 
   // TODO: CRIO_TASK_MODULE_REGISTER - Implement the register function
@@ -84,14 +86,31 @@ const Register = () => {
    *      -   Display a success message
    *      -   Redirect the user to the "/login" page
    */
-  const register = async () => {
-     const response = await this.performAPICall();
-  };
+  // const register = async () => {
+  //   // CRIO_UNCOMMENT_START_MODULE_LOGIN
+  //   // const response = await this.performAPICall();
+  //   // CRIO_UNCOMMENT_END_MODULE_LOGIN
+  //   // CRIO_SOLUTION_START_MODULE_LOGIN
+  //   setLoading(true);
+  //   if (validateInput()) {
+  //     const response = await performAPICall();
+
+  //     if (response) {
+
+  //     }
+  //   }
+  //   setLoading(false);
+  //   // CRIO_SOLUTION_END_MODULE_LOGIN
+  // };
 
   return (
-    // FIXME - Can we have the <Layout> component defined here instead of a separate component?
-    <Layout>
-      <AlternateHeader />
+    <Box
+      display="flex"
+      flexDirection="column"
+      justifyContent="space-between"
+      minHeight="100vh"
+    >
+      <Header hasHiddenAuthButtons />
       <Box className="content">
         <Stack spacing={2} className="form">
           <h2 className="title">Register</h2>
@@ -103,9 +122,7 @@ const Register = () => {
             name="username"
             placeholder="Enter Username"
             fullWidth
-            onChange={(e) => {
-              setFormData({ ...formData, username: e.target.value });
-            }}
+            onChange={handleInput}
           />
           <TextField
             id="password"
@@ -113,11 +130,11 @@ const Register = () => {
             label="Password"
             name="password"
             type="password"
+            // FIXME - Is this required? Not showing up on UI
             placeholder="Enter a password with minimum 8 characters"
-            onChange={(e) => {
-              setFormData({ ...formData, password: e.target.value });
-            }}
-            helperText="Password must include at least one numeric character, one uppercase, and one lowercase letter"
+            onChange={handleInput}
+            // FIXME - Update placeholder text
+            helperText="Password must be atleast 6 characters length"
             fullWidth
           />
           <TextField
@@ -127,9 +144,7 @@ const Register = () => {
             name="confirmPassword"
             type="password"
             placeholder="Re-enter your password to confirm"
-            onChange={(e) => {
-              setFormData({ ...formData, confirmPassword: e.target.value });
-            }}
+            onChange={handleInput}
             fullWidth
           />
           {loading ? (
@@ -137,7 +152,12 @@ const Register = () => {
               <CircularProgress size={25} color="primary" />
             </Box>
           ) : (
-            <Button variant="contained" onClick={register}>
+            <Button
+              className="button"
+              variant="contained"
+              onClick={() => register(formData)}
+              sx={{ "background-color": "#00a278" }}
+            >
               Register Now
             </Button>
           )}
@@ -149,7 +169,8 @@ const Register = () => {
           </p>
         </Stack>
       </Box>
-    </Layout>
+      <Footer />
+    </Box>
   );
 };
 
