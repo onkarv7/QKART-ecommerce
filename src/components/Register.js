@@ -27,8 +27,6 @@ const Register = () => {
    * -    Check that password field is not more than 32 characters in length
    * -    Check that confirmPassword field has the same value as password field
    */
-  const validateInput = (data) => {
-  };
 
   // TODO: CRIO_TASK_MODULE_REGISTER - Implement the register function
   /**
@@ -114,7 +112,7 @@ const Register = () => {
             type="password"
             fullWidth
           />
-          <Button
+          {/* <Button
             className="button"
             variant="contained"
             // CRIO_SOLUTION_START_MODULE_REGISTER
@@ -123,9 +121,10 @@ const Register = () => {
             sx={{ backgroundColor: "#00a278" }}
           >
             Register Now
-          </Button>
+          </Button> */}
           <p className="secondary-action">
             Already have an account?{" "}
+            {/* eslint-disable-jsx-a11y/anchor-is-valid */}
             <a className="link" href="#">
               Login here
             </a>
