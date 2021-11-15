@@ -114,24 +114,21 @@ const Register = () => {
             placeholder="Re-enter your password to confirm"
             fullWidth
           />
-          {loading ? (
-            <Box display="flex" justifyContent="center" alignItems="center">
-              <CircularProgress size={25} color="primary" />
-            </Box>
-          ) : (
-            <Button
-              className="button"
-              variant="contained"
-              sx={{ "background-color": "#00a278" }}
-            >
-              Register Now
-            </Button>
-          )}
+          <Button
+            className="button"
+            variant="contained"
+            // CRIO_SOLUTION_START_MODULE_REGISTER
+            onClick={() => register(formData)}
+            // CRIO_SOLUTION_END_MODULE_REGISTER
+            sx={{ "background-color": "#00a278" }}
+          >
+            Register Now
+          </Button>
           <p className="secondary-action">
             Already have an account?{" "}
-            {/* <a className="link" href="#">
+            <a className="link" href="#">
               Login here
-            </a> */}
+            </a>
           </p>
         </Stack>
       </Box>
