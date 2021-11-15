@@ -40,6 +40,19 @@ const Register = () => {
   const validateInput = (data) => {
   };
 
+
+  // TODO: CRIO_TASK_MODULE_REGISTER - Implement the register function
+  /**
+   * Definition for register handler
+   * This is the function that is called when the user clicks on the register button or submits the register form
+   * -    Call the previously defined validateInput() function and check that is returns true, i.e. the input values pass validation
+   * -    Call the previously defined performAPICall() function asynchronously and capture the returned value in a variable
+   * -    If the returned value exists,
+   *      -   Clear the input fields
+   *      -   Display a success message
+   *      -   Redirect the user to the "/login" page
+   */
+  
   // TODO: CRIO_TASK_MODULE_REGISTER - Fetch the API response
   /**
    * Perform the API call over the network and return the response
@@ -74,34 +87,6 @@ const Register = () => {
    */
   const register = async (formData) => {
   };
-
-  // TODO: CRIO_TASK_MODULE_REGISTER - Implement the register function
-  /**
-   * Definition for register handler
-   * This is the function that is called when the user clicks on the register button or submits the register form
-   * -    Call the previously defined validateInput() function and check that is returns true, i.e. the input values pass validation
-   * -    Call the previously defined performAPICall() function asynchronously and capture the returned value in a variable
-   * -    If the returned value exists,
-   *      -   Clear the input fields
-   *      -   Display a success message
-   *      -   Redirect the user to the "/login" page
-   */
-  // const register = async () => {
-  //   // CRIO_UNCOMMENT_START_MODULE_LOGIN
-  //   // const response = await this.performAPICall();
-  //   // CRIO_UNCOMMENT_END_MODULE_LOGIN
-  //   // CRIO_SOLUTION_START_MODULE_LOGIN
-  //   setLoading(true);
-  //   if (validateInput()) {
-  //     const response = await performAPICall();
-
-  //     if (response) {
-
-  //     }
-  //   }
-  //   setLoading(false);
-  //   // CRIO_SOLUTION_END_MODULE_LOGIN
-  // };
 
   return (
     <Box
