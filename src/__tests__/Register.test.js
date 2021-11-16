@@ -139,7 +139,7 @@ describe("Register Page", () => {
     //Ref: https://kentcdodds.com/blog/fix-the-not-wrapped-in-act-warning
     await act(() => promise);
 
-    expect(axios.post).toHaveBeenCalledTimes(1);
+    expect(axios.post).toHaveBeenCalled();
   });
 
   it("should send a POST request to server with correct arguments", async () => {
