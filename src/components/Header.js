@@ -12,13 +12,12 @@ const Header = () =>
         <Box
           className="header-title"
         >
-          {/* FIXME - Skip svg in stub generator */}
           <img src="logo_light.svg" alt="QKart-icon"></img>
         </Box>
         <Button
+          className="explore-button"
           startIcon={<ArrowBackIcon />}
           variant="text"
-          sx={{ color: "#00a278" }}
         >
           Back to explore
         </Button>
