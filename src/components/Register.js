@@ -49,11 +49,12 @@ const Register = () => {
    *    Whether validation has passed or not
    *
    * Return false if any validation condition fails, otherwise return true.
-   * -    Check that username field is not an empty value
-   * -    Check that username field is not less than 6 characters in length
-   * -    Check that password field is not an empty value
-   * -    Check that password field is not less than 6 characters in length
-   * -    Check that confirmPassword field has the same value as password field
+   * (NOTE: The error messages to be shown for each of these cases, are given with them)
+   * -    Check that username field is not an empty value - "Username is a required field"
+   * -    Check that username field is not less than 6 characters in length - "Username must be at least 6 characters"
+   * -    Check that password field is not an empty value - "Password is a required field"
+   * -    Check that password field is not less than 6 characters in length - "Password must be at least 6 characters"
+   * -    Check that confirmPassword field has the same value as password field - Passwords do not match
    */
   const validateInput = (data) => {
   };
