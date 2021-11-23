@@ -53,9 +53,7 @@ router.post("/", verifyAuth, async (req, res) => {
           req.user.cart
         );
 
-        return res.status(201).json({
-          success: true,
-        });
+        return res.status(201).json(req.user.cart);
       }
     );
   });

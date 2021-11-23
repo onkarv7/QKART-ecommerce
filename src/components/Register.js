@@ -23,7 +23,7 @@ const Register = () => {
    * API endpoint - "POST /auth/register"
    *
    * Example for successful response from backend for the API call:
-   * HTTP 200
+   * HTTP 201
    * {
    *      "success": true,
    * }
@@ -87,6 +87,7 @@ const Register = () => {
             type="password"
             helperText="Password must be atleast 6 characters length"
             fullWidth
+            placeholder="Enter a password with minimum 6 characters"
           />
           <TextField
             id="confirmPassword"
@@ -96,14 +97,14 @@ const Register = () => {
             type="password"
             fullWidth
           />
-          <Button className="button" variant="contained">
+           <Button className="button" variant="contained">
             Register Now
-          </Button>
+           </Button>
           <p className="secondary-action">
             Already have an account?{" "}
-            <a className="link" href="#">
+             <a className="link" href="#">
               Login here
-            </a>
+             </a>
           </p>
         </Stack>
       </Box>

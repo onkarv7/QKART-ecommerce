@@ -42,9 +42,7 @@ router.post("/addresses", verifyAuth, (req, res) => {
         `Address "${req.body.address}" added to user ${req.user.username}'s address list`
       );
 
-      return res.status(200).json({
-        success: true,
-      });
+      return res.status(200).json(req.user.addresses);
     }
   );
 });
@@ -53,7 +51,7 @@ router.delete("/addresses/:id", verifyAuth, async (req, res) => {
   console.log(`DELETE request received to "/cart/addresses"`);
 
   const index = await req.user.addresses.findIndex(
-    (element) => element._id == req.params.id
+    (element) => element._id === req.params.id
   );
   if (index === -1) {
     return res.status(404).json({
@@ -75,9 +73,7 @@ router.delete("/addresses/:id", verifyAuth, async (req, res) => {
         `Address with id ${req.user._id} deleteed from user ${req.user.username}'s address list`
       );
 
-      return res.status(200).json({
-        success: true,
-      });
+      return res.status(200).json(req.user.addresses);
     }
   );
 });

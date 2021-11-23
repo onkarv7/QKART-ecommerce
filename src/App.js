@@ -8,7 +8,7 @@ export const config = {
 function App() {
   return (
     <div className="App">
-      <Register />
+          <Register />
     </div>
   );
 }
