@@ -205,7 +205,12 @@ describe("Register Page", () => {
     );
 
     expect(registerCall.url).toEqual(`${config.endpoint}/auth/register`);
-    expect(registerCall.data).toEqual(JSON.stringify(request));
+    expect(JSON.parse(registerCall.data)).toEqual(
+      expect.objectContaining({
+        username: request.username,
+        password: request.password,
+      })
+    );
   });
 
   it("should show success alert if request succeeds", async () => {
