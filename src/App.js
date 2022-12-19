@@ -6,14 +6,16 @@ import Products from "./components/Products";
 import Checkout from "./components/Checkout";
 import Thanks from "./components/Thanks"
 
+
 export const config = {
   endpoint: `https://qkart-frontend-i0kb.onrender.com/api/v1`,
+ 
 };
 
 function App() {
   return (
     <div className="App">
-      <Switch>
+        <Switch>
         <Route path="/thanks" component={Thanks} />
         <Route path="/checkout" component={Checkout} />
         <Route path="/register" component={Register} />
